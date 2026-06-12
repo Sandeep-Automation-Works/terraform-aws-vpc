@@ -18,6 +18,7 @@ locals {
         },
         var.igw_tags
     )
+    az_names = data.aws_availability_zones.available.name
 }
 
 
