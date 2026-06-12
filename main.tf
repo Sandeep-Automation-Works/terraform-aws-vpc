@@ -12,7 +12,7 @@ resource "aws_vpc" "roboshop_vpc" {
 }
 
 resource "aws_internet_gateway" "gw" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.roboshop_vpc.id
 
   tags = local.igw_final_tags
 }
