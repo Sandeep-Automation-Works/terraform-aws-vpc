@@ -16,3 +16,15 @@ resource "aws_internet_gateway" "gw" {
 
   tags = local.igw_final_tags
 }
+
+# public subnet for us-east-1a, us-east-1b
+resource "aws_subnet" "public_subnet" {
+  count = length(var.public_subnet_cidr)
+  vpc_id     = aws_vpc.roboshop_vpc.id
+  cidr_block = var.public_subnet_cidr[count.index]
+  
+
+  tags = {
+    Name = "Main"
+  }
+}
